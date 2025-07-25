@@ -1,5 +1,9 @@
 # esp-idf-lib/bmp280
 
+[![Build examples](https://github.com/esp-idf-lib/bmp280/actions/workflows//build.yml/badge.svg)](https://github.com/esp-idf-lib/bmp280/actions/workflows//build.yml)
+[![Build docs](https://github.com/esp-idf-lib/bmp280/actions/workflows//build-docs.yml/badge.svg)](https://github.com/esp-idf-lib/bmp280/actions/workflows//build-docs.yml)
+[![Validation](https://github.com/esp-idf-lib/bmp280/actions/workflows//validate-component.yml/badge.svg)](https://github.com/esp-idf-lib/bmp280/actions/workflows//validate-component.yml)
+
 Driver for BMP280/BME280 digital pressure sensor.
 
 * [Documentation](https://esp-idf-lib.github.io/bmp280/)
@@ -11,7 +15,7 @@ Driver for BMP280/BME280 digital pressure sensor.
 ## Installation
 
 ```sh
-idf.py add-dependency esp-idf-lib/bmp280^1.0.0
+idf.py add-dependency esp-idf-lib/bmp280
 ```
 
 ## Support
