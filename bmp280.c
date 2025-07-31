@@ -201,8 +201,8 @@ esp_err_t bmp280_init(bmp280_t *dev, bmp280_params_t *params)
     if (dev->id != BMP280_CHIP_ID && dev->id != BME280_CHIP_ID)
     {
         CHECK_LOGE(dev, ESP_ERR_INVALID_VERSION,
-                "Invalid chip ID: expected: 0x%x (BME280) or 0x%x (BMP280) got: 0x%x",
-                BME280_CHIP_ID, BMP280_CHIP_ID, dev->id);
+                   "Invalid chip ID: expected: 0x%x (BME280) or 0x%x (BMP280) got: 0x%x",
+                   BME280_CHIP_ID, BMP280_CHIP_ID, dev->id);
     }
 
     // Soft reset.
@@ -345,8 +345,8 @@ static inline uint32_t compensate_humidity(bmp280_t *dev, int32_t adc_hum, int32
 
     v_x1_u32r = fine_temp - (int32_t)76800;
     v_x1_u32r = ((((adc_hum << 14) - ((int32_t)dev->dig_H4 << 20) - ((int32_t)dev->dig_H5 * v_x1_u32r)) + (int32_t)16384) >> 15)
-            * (((((((v_x1_u32r * (int32_t)dev->dig_H6) >> 10) * (((v_x1_u32r * (int32_t)dev->dig_H3) >> 11) + (int32_t)32768)) >> 10)
-                    + (int32_t)2097152) * (int32_t)dev->dig_H2 + 8192) >> 14);
+                * (((((((v_x1_u32r * (int32_t)dev->dig_H6) >> 10) * (((v_x1_u32r * (int32_t)dev->dig_H3) >> 11) + (int32_t)32768)) >> 10)
+                     + (int32_t)2097152) * (int32_t)dev->dig_H2 + 8192) >> 14);
     v_x1_u32r = v_x1_u32r - (((((v_x1_u32r >> 15) * (v_x1_u32r >> 15)) >> 7) * (int32_t)dev->dig_H1) >> 4);
     v_x1_u32r = v_x1_u32r < 0 ? 0 : v_x1_u32r;
     v_x1_u32r = v_x1_u32r > 419430400 ? 419430400 : v_x1_u32r;

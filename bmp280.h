@@ -57,13 +57,15 @@ extern "C" {
 /**
  * Mode of BMP280 module operation.
  */
-typedef enum {
+typedef enum
+{
     BMP280_MODE_SLEEP = 0,  //!< Sleep mode
     BMP280_MODE_FORCED = 1, //!< Measurement is initiated by user
     BMP280_MODE_NORMAL = 3  //!< Continues measurement
 } BMP280_Mode;
 
-typedef enum {
+typedef enum
+{
     BMP280_FILTER_OFF = 0,
     BMP280_FILTER_2 = 1,
     BMP280_FILTER_4 = 2,
@@ -74,7 +76,8 @@ typedef enum {
 /**
  * Pressure oversampling settings
  */
-typedef enum {
+typedef enum
+{
     BMP280_SKIPPED = 0,          //!< no measurement
     BMP280_ULTRA_LOW_POWER = 1,  //!< oversampling x1
     BMP280_LOW_POWER = 2,        //!< oversampling x2
@@ -86,7 +89,8 @@ typedef enum {
 /**
  * Stand by time between measurements in normal mode
  */
-typedef enum {
+typedef enum
+{
     BMP280_STANDBY_05 = 0,      //!< stand by time 0.5ms
     BMP280_STANDBY_62 = 1,      //!< stand by time 62.5ms
     BMP280_STANDBY_125 = 2,     //!< stand by time 125ms
@@ -101,7 +105,8 @@ typedef enum {
  * Configuration parameters for BMP280 module.
  * Use function ::bmp280_init_default_params() to use default configuration.
  */
-typedef struct {
+typedef struct
+{
     BMP280_Mode mode;
     BMP280_Filter filter;
     BMP280_Oversampling oversampling_pressure;
@@ -113,7 +118,8 @@ typedef struct {
 /**
  * Device descriptor
  */
-typedef struct {
+typedef struct
+{
     uint16_t dig_T1;
     int16_t  dig_T2;
     int16_t  dig_T3;
