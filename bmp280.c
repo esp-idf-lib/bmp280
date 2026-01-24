@@ -39,6 +39,8 @@
 #include <inttypes.h>
 #include <esp_log.h>
 #include <esp_idf_lib_helpers.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
 
 #define I2C_FREQ_HZ 1000000 // Max 1MHz for esp-idf
 
@@ -214,6 +216,7 @@ esp_err_t bmp280_init(bmp280_t *dev, bmp280_params_t *params)
         uint8_t status;
         if (!i2c_dev_read_reg(&dev->i2c_dev, BMP280_REG_STATUS, &status, 1) && (status & 1) == 0)
             break;
+        vTaskDelay(1);
     }
 
     CHECK_LOGE(dev, read_calibration_data(dev), "Failed to read calibration data");
