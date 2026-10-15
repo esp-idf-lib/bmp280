@@ -1,7 +1,7 @@
 ---
 name: bmp280
 description: Driver for BMP280/BME280 digital pressure sensor
-version: 1.0.7
+version: 1.0.8
 groups:
   - pressure
   - temperature
@@ -11,6 +11,7 @@ depends:
   - i2cdev
   - log
   - esp_idf_lib_helpers
+  - freertos
 thread_safe: yes
 targets:
   - esp32
