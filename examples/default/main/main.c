@@ -33,10 +33,6 @@ void bmp280_test(void *pvParameters)
             continue;
         }
 
-        /* float is used in printf(). you need non-default configuration in
-         * sdkconfig for ESP8266, which is enabled by default for this
-         * example. see sdkconfig.defaults.esp8266
-         */
         printf("Pressure: %.2f Pa, Temperature: %.2f C", pressure, temperature);
         if (bme280p)
             printf(", Humidity: %.2f\n", humidity);
